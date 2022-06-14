@@ -1,1 +1,1 @@
-Function to find nearby local maxima from seed points
+Defines a convienient function to find nearby local maxima from seed points
