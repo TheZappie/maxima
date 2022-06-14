@@ -1,0 +1,1 @@
+Function to find nearby local maxima from seed points
