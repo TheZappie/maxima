@@ -1,3 +1,3 @@
-Defines a convenient function to find nearby local maxima from seed points. 
+Defines a function to find local maxima near seed points. 
 
 TODO: test scaled up version. profile code. 

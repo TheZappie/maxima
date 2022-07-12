@@ -11,7 +11,7 @@ def prune(G, node):
     """
     reference = np.arange(len(G.nodes))
 
-    def prune2(G, node):
+    def _prune(G, node):
         value = G.nodes[node]['value']
         preds = [p for p in G.predecessors(node)]
         for p in preds:
@@ -19,9 +19,9 @@ def prune(G, node):
                 G.remove_node(p)
                 reference[p] = node
             else:
-                prune2(G, p)
+                _prune(G, p)
 
-    prune2(G, node)
+    _prune(G, node)
     return reference
 
 
@@ -31,6 +31,7 @@ def find_nearby_maxima(image, seeds, connectivity=1):
     seeds: list of tuples containing the indices of every seed
     When identical values are present in the image (plateaus), a random peak is chosen
     """
+    image[np.isnan(image)] = np.nanmin(image)
     parent, traverser = morphology.max_tree(image, connectivity)
     image_rav = image.ravel()
     tree = nx.DiGraph()
@@ -59,3 +60,9 @@ def find_nearby_maxima(image, seeds, connectivity=1):
     # except TypeError:
     #     return find(tree, raveled_indices)
     return [find(tree, s) for s in seeds_reveled]
+
+
+# TODO find other solution. Base on while loop to avoid recursion
+current_node = seed
+while True:
+    break
