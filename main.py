@@ -61,7 +61,7 @@ def find_nearby_maxima(image, seeds, connectivity=1):
     #     return find(tree, raveled_indices)
     return [find(tree, s) for s in seeds_reveled]
 
-
+hi
 # TODO find other solution. Base on while loop to avoid recursion
 current_node = seed
 while True:
